@@ -11,7 +11,7 @@ pipeline {
         }
         stage('SonarQube Analysis') {
             steps {
-                def scannerHome = tool 'sonarqube'
+                def scannerHome = tool 'SonarScanner'
                 withSonarQubeEnv('sonarqube') {
                     sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=web-app -Dsonar.sources=. -Dsonar.host.url=http://34.203.199.229:9000"
                 }
